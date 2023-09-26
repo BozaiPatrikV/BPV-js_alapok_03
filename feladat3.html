@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. feladat</title>
+</head>
+<body>
+    <button onclick="udv()">Köszöntés</button>
+
+    <script>
+        function udv() {
+            let ora = new Date().getHours();
+            let szoveg = "";
+
+            if (ora >= 5 && ora < 12) {
+                szoveg = "Jó reggelt!";
+            } else if (ora >= 12 && ora < 18) {
+                szoveg = "Jó napot!";
+            } else if (ora >= 18 && ora < 24) {
+                szoveg = "Jó estét!";
+            } else {
+                szoveg = "Jó éjszakát!";
+            }
+            alert(szoveg);
+        }
+    </script>
+</body>
+</html>

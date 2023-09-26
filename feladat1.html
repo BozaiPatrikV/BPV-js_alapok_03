@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Szám Gondolós Játék</title>
+</head>
+<body>
+    <h1><i>Game!</i></h1>
+    <p>Gondoltam egy számra 1 és 100 között. <strong>Tippelj!</strong></p>
+    
+    <input id="tippszam" placeholder="Melyik számra gondoltam?">
+    <button onclick="tipp()">Tipp</button>
+    <button onclick="ujSzam()">Új szám generálása</button>
+
+    <p id="visszajelzes"></p>
+
+    <script>
+        let rndSzam = Math.floor(Math.random() * 100) + 1;
+        let visszajelzesElem = document.getElementById("visszajelzes");
+
+        function tipp() {
+            let tipp = parseInt(document.getElementById("tippszam").value);
+
+            if (tipp === rndSzam) {
+                visszajelzesElem.textContent = "Gratulálok, eltaláltad a számot!";
+            } else if (tipp < rndSzam) {
+                visszajelzesElem.textContent = "A gondolt szám nagyobb.";
+            } else {
+                visszajelzesElem.textContent = "A gondolt szám kisebb.";
+            }
+        }
+
+        function ujSzam() {
+            rndSzam = Math.floor(Math.random() * 100) + 1;
+        }
+    </script>
+</body>
+</html>
+
+    

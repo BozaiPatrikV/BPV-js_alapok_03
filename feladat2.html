@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A háromszögnek a T és K számítása!</title>
+</head>
+<body>
+    <h2>A háromszögnek a T és K számítása!</h2>
+
+    <label for="a">a oldal: </label>
+    <input id="a"><br>
+
+    <label for="b">b oldal: </label>
+    <input id="b"><br>
+
+    <label for="c">c oldal: </label>
+    <input id="c"><br>
+
+    <button onclick="szamol()">Számol</button>
+
+    <p id="eredmeny"></p>
+
+    <script>
+        function szamol() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+
+            if (a + b <= c || a + c <= b || b + c <= a) {
+                alert("Ez nem egy háromszög! Tipp: Nem lehet az egyik oldal nagyobb vagy egyenlő, mint a másik két oldal öszege!");
+                return;
+            }
+
+            let s = (a + b + c) / 2;
+            let terulet = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            let kerulet = a + b + c;
+
+            let eredmeny = document.getElementById("eredmeny");
+            eredmeny.textContent = "Terület: " + terulet.toFixed(2) + " Kerület: " + kerulet.toFixed(2);
+        }
+    </script>
+</body>
+</html>
